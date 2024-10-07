@@ -1,13 +1,21 @@
-export default function HomePageMainButtons({ title, description }) {
+import PropTypes from "prop-types";
+
+export default function HomePageMainButtons({ children, onClick }) {
   return (
-    <div
+    <button
+      onClick={onClick}
       className="bg-slate-200 text-black p-20 montserrat-alternates-regular
       hover:shadow-10xl
      rounded-2xl shadow-xl lg:w-[420px] w-[300px] h-fit hover:bg-slate-100 hover:cursor-pointer
     "
     >
-      <h2 className="text-2xl font-extrabold">{title}</h2>
-      <p>{description}</p>
-    </div>
+      {children}
+    </button>
   );
 }
+
+// Correct propTypes definition
+HomePageMainButtons.propTypes = {
+  children: PropTypes.node.isRequired, // Validates that 'children' can be anything renderable
+  onClick: PropTypes.func.isRequired, // Validates that 'onClick' is a function
+};
