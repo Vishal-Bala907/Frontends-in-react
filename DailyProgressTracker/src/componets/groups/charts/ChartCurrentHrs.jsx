@@ -14,7 +14,6 @@ export default function ChartCurrentHrs() {
   const labels = useSelector((state) => state.chartData.labels);
 
   const dates = useSelector((state) => state.chartData.dates);
-  console.log(dates);
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
 

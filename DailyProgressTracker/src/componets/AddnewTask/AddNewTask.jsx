@@ -21,7 +21,7 @@ export default function AddNewTask() {
       .catch(function (err) {
         console.error(err);
       });
-    console.log(data);
+    // console.log(data);
   };
   return (
     <section className="flex items-center justify-center">

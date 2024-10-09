@@ -1,4 +1,3 @@
-import React from "react";
 import ChartCurrentHrs from "./charts/ChartCurrentHrs";
 import ProgressCard from "./charts/ProgressCard";
 

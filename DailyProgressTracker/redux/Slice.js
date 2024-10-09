@@ -9,12 +9,12 @@ const Slice = createSlice({
     dates: [],
     data: [{}],
     days: 0,
+    date: "",
   },
   reducers: {
     //^ reducers methods
     setdata: (state, charObj) => {
       const data = charObj.payload.data;
-      console.log(data);
       state.dates = [];
       state.labels = [];
       state.data = [];
@@ -30,10 +30,13 @@ const Slice = createSlice({
     setDays: (state, days) => {
       state.days = days.payload;
     },
+    setDate: (state, date) => {
+      state.date = date.payload;
+    },
   },
 });
 //^ export reducer methods
-export const { setdata, setDays } = Slice.actions;
+export const { setdata, setDays, setDate } = Slice.actions;
 
 //^ export slice
 export default Slice.reducer;
