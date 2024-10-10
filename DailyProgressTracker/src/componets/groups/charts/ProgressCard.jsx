@@ -45,10 +45,17 @@ export default function ProgressCard() {
     <div className="flex flex-wrap items-center justify-center p-9 bg-blue-100">
       <TotalHourCard />
       {data.map((task) => {
-        let hr =
-          String((task.minutes / 60).toFixed(0)) +
-          "." +
-          String(task.minutes % 60);
+        let hr;
+
+        if (task.minutes < 60) {
+          hr = task.minutes + " minutes";
+        } else {
+          hr =
+            String(Math.floor(task.minutes / 60)) +
+            "." +
+            String(task.minutes % 60) +
+            " hours";
+        }
 
         return (
           <div
@@ -77,7 +84,7 @@ export default function ProgressCard() {
             {/* Hours Section */}
             <div className="bg-gray-100 text-center py-2 mb-4 rounded-2xl">
               <p className="text-lg font-semibold text-gray-700">Hours Spent</p>
-              <p className="text-2xl font-bold text-gray-900">{hr} hr</p>
+              <p className="text-2xl font-bold text-gray-900">{hr}</p>
             </div>
 
             {/* Date & Description */}

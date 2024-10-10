@@ -14,6 +14,8 @@ export default function ChartCurrentHrs() {
   const labels = useSelector((state) => state.chartData.labels);
 
   const dates = useSelector((state) => state.chartData.dates);
+
+  const longDates = useSelector((state) => state.chartData.longDates);
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
 
@@ -27,7 +29,7 @@ export default function ChartCurrentHrs() {
         labels: labels,
         datasets: [
           {
-            label: "Minutes Worked",
+            label: longDates > 0 ? "Hours worked" : "minutes worked",
             data: dates,
             borderColor: "rgba(75,192,192,1)",
             backgroundColor: colors,
